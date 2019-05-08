@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
+use Illuminate\Database\Eloquent\Model;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -11,7 +13,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
-        $this->call(CategoryTableSeeder::class);
+        $this->truncate(['users', 'categories']);
+
+        $this->call(UsersTableSeeder::class);
+        $this->call(CategoriesTableSeeder::class);
+    }
+
+    public function truncate($tables)
+    {
+        Model::unguard();
+
+        foreach($tables as $table)
+            DB::table($table)->truncate();
+
+        Model::reguard();
     }
 }

@@ -4,9 +4,9 @@ use Illuminate\Database\Seeder;
 
 use App\Category;
 
-// $ php artisan make:seeder CategoryTableSeeder
+// $ php artisan make:seeder CategoriesTableSeeder
 
-class CategoryTableSeeder extends Seeder
+class CategoriesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
